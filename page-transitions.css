@@ -1,0 +1,109 @@
+/* Page Transition Loader Styles */
+
+/* Loader Overlay */
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #eaffd0, #b6f36b);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.page-loader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Animated Cart Loader */
+.loader-cart {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  animation: cartMovingForward 1.2s ease-in-out infinite;
+}
+
+@keyframes cartMovingForward {
+  0% {
+    transform: translateX(-20px) scale(0.95);
+  }
+  30% {
+    transform: translateX(10px) scale(1.05);
+  }
+  60% {
+    transform: translateX(25px) scale(1.1);
+  }
+  100% {
+    transform: translateX(40px) scale(1);
+  }
+}
+
+/* Speed Lines */
+.speed-line {
+  position: absolute;
+  height: 3px;
+  background: linear-gradient(to right, transparent, rgba(76, 175, 80, 0.8));
+  left: -30px;
+  animation: speedLine 0.4s ease-out infinite;
+}
+
+.speed-line:nth-child(1) {
+  top: 25%;
+  width: 40px;
+  animation-delay: 0s;
+}
+
+.speed-line:nth-child(2) {
+  top: 50%;
+  width: 50px;
+  animation-delay: 0.1s;
+}
+
+.speed-line:nth-child(3) {
+  top: 75%;
+  width: 35px;
+  animation-delay: 0.2s;
+}
+
+@keyframes speedLine {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+.loader-text {
+  margin-top: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2f6f2f;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Cart image - no rotation, just scale slightly */
+.loader-cart img {
+  animation: cartPulse 0.8s ease-in-out infinite;
+}
+
+@keyframes cartPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
